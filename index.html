@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta name="description" content="Asadbek Maqsudov - Veb dasturchi va Python ishqibozining shaxsiy portfoliosi.">
+<meta name="keywords" content="Asadbek Maqsudov, dasturchi, portfolio, web developer, Python, Bootstrap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asadbek Maqsudov | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #050a10;
+            --accent: #d4af37; /* Tilla rang */
+            --text: #e0e0e0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Fon effekti --- */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1a2a3a, transparent 70%);
+            z-index: -1;
+        }
+
+        /* --- Navigatsiya --- */
+        nav {
+            padding: 25px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: 2px; }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Typewriter Effect */
+        .typing-box {
+            font-size: 1.8rem;
+            min-height: 40px;
+            color: var(--accent);
+        }
+        #cursor { animation: blink 0.7s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* --- Bo'limlar --- */
+        section { padding: 100px 10%; }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        /* --- Kartochkalar (Skills & Info) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.05);
+            border-color: var(--accent);
+        }
+
+        .card i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+
+        /* --- Contact Form --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            border: none;
+            color: var(--bg);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transform: scale(1.02);
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="logo">Asadbek Maqsudov<span>.</span></div>
+        <div class="nav-links">
+            <a href="#home">Asosiy</a>
+            <a href="#about">Ma'lumot</a>
+            <a href="#skills">Ko'nikmalar</a>
+            <a href="#contact">Aloqa</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Assalomu alaykum, men</h2>
+        <h1>ASADBEK <br> MAQSUDOV</h1>
+        <div class="typing-box">
+            Men <span id="typed-text"></span><span id="cursor">|</span>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Men haqimda</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+            <p style="font-size: 1.2rem;">
+                Men **Asadbek Maqsudov**, zamonaviy veb-texnologiyalarni o'rganishga ishtiyoqi baland yosh dasturchiman. 
+                Hozirda **HTML** kursini muvaffaqiyatli tugatib, sertifikatga ega bo'ldim. To'xtab qolmasdan, 
+                **Python** va **Bootstrap** texnologiyalari ustida ishlayapman. Maqsadim — murakkab va foydali 
+                raqamli mahsulotlar yaratish orqali insonlar mushkulini oson qilish.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Bilimlarim</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5 & CSS3</h3>
+                <p>Sertifikatga ega. Mukammal struktura va dizayn.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Hozirda o'rganilmoqda. Backend olamiga kirish.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-bootstrap"></i>
+                <h3>Bootstrap</h3>
+                <p>Tezkor va moslashuvchan (responsive) interfeyslar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Aloqa</h2>
+        <div class="contact-container">
+            <form>
+                <input type="text" placeholder="Ismingiz" required>
+                <input type="email" placeholder="Emailingiz" required>
+                <textarea rows="5" placeholder="Xabaringiz..."></textarea>
+                <button type="submit">Xabarni yuborish</button>
+            </form>
+            <div style="margin-top: 30px; text-align: center;">
+                <p><i class="fas fa-envelope" style="color: var(--accent);"></i> azizbek.3000@icloud.com</p>
+                <p><i class="fab fa-telegram" style="color: var(--accent); margin-top: 10px;"></i> @Asadbek_git</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Asadbek Maqsudov. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        // --- Typewriter Logic ---
+        const textElement = document.getElementById('typed-text');
+        const phrases = [
+            "Veb Dasturchiman.",
+            "Python ishqiboziman.",
+            "Bootstrap o'rganuvchisiman.",
+            "Kreativ fikrlovchiman."
+        ];
+        
+        let i = 0;
+        let j = 0;
+        let currentPhrase = [];
+        let isDeleting = false;
+        let isEnd = false;
+
+        function loop() {
+            isEnd = false;
+            textElement.innerHTML = currentPhrase.join('');
+
+            if (i < phrases.length) {
+                if (!isDeleting && j <= phrases[i].length) {
+                    currentPhrase.push(phrases[i][j]);
+                    j++;
+                }
+
+                if (isDeleting && j <= phrases[i].length) {
+                    currentPhrase.pop(phrases[i][j]);
+                    j--;
+                }
+
+                if (j == phrases[i].length) {
+                    isEnd = true;
+                    isDeleting = true;
+                }
+
+                if (isDeleting && j == 0) {
+                    currentPhrase = [];
+                    isDeleting = false;
+                    i++;
+                    if (i == phrases.length) {
+                        i = 0;
+                    }
+                }
+            }
+            const speed = isEnd ? 2000 : isDeleting ? 50 : 100;
+            setTimeout(loop, speed);
+        }
+
+        loop();
+    </script>
+</body>
+</html>
